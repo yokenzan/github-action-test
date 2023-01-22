@@ -48,8 +48,8 @@
             ]
         ],
         "branches": [
-            "master",
-            "release"
+            "release",
+            "master"
         ]
     }
 }
