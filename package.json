@@ -48,7 +48,7 @@
             ]
         ],
         "branches": [
-            "master"
+            "release/tagging"
         ]
     }
 }
