@@ -21,26 +21,27 @@ jobs:
       - name: Create release branch
         id: create_branch
         run: |
-          git checkout -b release
+          git checkout -b tagging
           git push -u origin HEAD
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: |
-          git branch
-          npm ci --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
       - name: Release
         env:
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release
+        run: |
+          git branch
+          git branch -r
+          npx semantic-release
       - name: Create release PR
         id: create_release_pr
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: release
+          branch: tagging
           base: master
           title: "Version up"
           draft: false
