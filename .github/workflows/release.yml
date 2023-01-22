@@ -31,6 +31,14 @@ jobs:
         run: npm ci --legacy-peer-deps
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
+      - name: Create release PR
+        id: create_release_pr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: release
+          base: master
+          title: "Version up"
+          draft: false
