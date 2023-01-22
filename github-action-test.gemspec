@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/receiptisan/version'
+require_relative 'lib/github-action-test/version'
 
 Gem::Specification.new do | spec |
   spec.name          = 'GitHubActionTest'
