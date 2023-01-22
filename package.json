@@ -48,8 +48,7 @@
             ]
         ],
         "branches": [
-            "release",
-            "master"
+            "['release', 'next-major', {name: 'beta', prerelease: true}, {name: 'alpha', prerelease: true}]"
         ]
     }
 }
