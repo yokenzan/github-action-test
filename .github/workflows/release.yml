@@ -26,7 +26,7 @@ jobs:
         run: npm ci --legacy-peer-deps
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GEM_HOST_API_KEY: ${{ secrets.GEM_HOST_API_KEY }}
         run: |
           git checkout -b release/tagging
